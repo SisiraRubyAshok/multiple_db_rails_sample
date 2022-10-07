@@ -1,0 +1,36 @@
+# SQLite. Versions 3.8.0 and up are supported.
+#   gem install sqlite3
+development:
+  primary:
+    database: my_primary_database
+    adapter: mysql2
+    host: localhost
+    username: root
+    password: password
+    pool: 5
+    timeout: 5000
+  primary_replica:
+    database: my_primary_database
+    adapter: mysql2
+    host: localhost
+    username: root_readonly
+    password: password
+    pool: 5
+    timeout: 5000
+    replica: true
+  animals:
+    encoding: unicode
+    host: localhost
+    database: my_animals_database
+    username: postgres
+    password: newpassword
+    adapter: postgresql
+    migrations_paths: db/animals_migrate
+  animals_replica:
+    encoding: unicode
+    host: localhost
+    database: my_animals_database
+    username: postgres
+    password: newpassword
+    adapter: postgresql
+    replica: true
